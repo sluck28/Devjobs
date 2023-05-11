@@ -1,0 +1,8 @@
+*comando para instalar breeze que es una libreria de laravel para crear una autenticacion
+con reset password, crear cuenta , verificar email
+
+composer require laravel/breeze --dev
+
+DESPUES INSTALAMOS BREEZE
+artisan
+no
