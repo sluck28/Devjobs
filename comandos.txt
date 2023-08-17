@@ -1,0 +1,8 @@
+para instalar breeze
+
+composer require laravel/breeze --dev
+php artisan breeze:install
+npm run dev
+
+para poner los mensajes de error en español copiamos el repositorio en git 
+git clone https://github.com/MarcoGomesr/laravel-validation-en-espanol.git resources/lang
