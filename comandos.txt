@@ -6,3 +6,10 @@ npm run dev
 
 para poner los mensajes de error en español copiamos el repositorio en git 
 git clone https://github.com/MarcoGomesr/laravel-validation-en-espanol.git resources/lang
+
+PARA CREAR UN CONTROLADOR CON LAS FUNCIONES CREADAS
+
+php artisan make:controller VacanteController -r
+
+PARA INSTALAR LIVEWIRE
+composer require livewire/livewire

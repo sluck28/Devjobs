@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        {{-- siempre agregamos livewire a nuestro proyecto en el head --}}
+        @livewireStyles
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
@@ -32,5 +33,6 @@
                 {{ $slot }}
             </main>
         </div>
+        @livewireScripts
     </body>
 </html>
