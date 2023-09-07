@@ -14,7 +14,14 @@ return new class extends Migration
         Schema::create('vacantes', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->foreignId('salario_id')->constrained()->onDelete('cascade');
+            $table->foreignId('salario_id')->constrained()->onDelete('cascade');   
+            $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
+            $table->string('empresa');  
+            $table->date('ultimo_dia');
+            $table->text('descripcion');
+            $table->string('imagen');
+            $table->integer('publicado')->default(1);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

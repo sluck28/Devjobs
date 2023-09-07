@@ -13,3 +13,6 @@ php artisan make:controller VacanteController -r
 
 PARA INSTALAR LIVEWIRE
 composer require livewire/livewire
+
+PARA EDITAR LA PAGINACION DE LARAVEL AL ESPAÑOL LA PUBLICAMOS EN VENDOR
+php artisan vendor:publish --tag=laravel-pagination
