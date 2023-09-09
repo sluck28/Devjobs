@@ -22,4 +22,25 @@ class Vacante extends Model
         'imagen',
         'user_id'
     ];
+
+    //para acceder a nuestras tablas de categoria y salarios
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);        
+    }
+
+    function salario()
+    {
+    return $this->belongsTo(Salario::class);
+    }
+
+    function candidatos() 
+    {
+            return $this->hasMany(Candidato::class);
+    }
+    //para saber a que reclutador pertenece la vacante
+    function reclutador() 
+    {
+        return $this->belongsTo(User::class,'user_id');    
+    }
 }

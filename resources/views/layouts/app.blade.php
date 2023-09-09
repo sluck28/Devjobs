@@ -34,5 +34,8 @@
             </main>
         </div>
         @livewireScripts
+        {{-- para agregar nuestros scripts con livewire --}}
+        @stack('scripts')
+        
     </body>
 </html>

@@ -7,6 +7,9 @@ use Livewire\Component;
 
 class MostrarVacantes extends Component
 {
+    //asi mandaamos a llamar nuestros eventos de livewire
+    protected $listeners=['eliminar_vacante'];
+
     public function render()
     {   
         //asi traemos las vacantes del usuario que ha publicado
@@ -15,5 +18,17 @@ class MostrarVacantes extends Component
         return view('livewire.mostrar-vacantes',[
             'vacantes' => $vacantes
         ]);
+    }
+
+    // public function prueba($vacante_id)
+    // {
+    //     dd($vacante_id);
+    // }
+
+    public function eliminar_vacante(Vacante $vacante)
+    {
+        //para eliminar la vacante
+        $vacante->delete();
+
     }
 }

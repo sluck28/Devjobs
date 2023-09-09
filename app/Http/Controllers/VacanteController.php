@@ -12,6 +12,8 @@ class VacanteController extends Controller
      */
     public function index()
     {
+        //policy para que los reclutadores solo puedan ver esa vista
+        $this->authorize('viewAny',Vacante::class);
         //mandamos a llamar desde el controlador
         return view('vacantes.index');
     }
@@ -21,27 +23,26 @@ class VacanteController extends Controller
      */
     public function create()
     {
-        //
+        //policy para que no puedan crear los demas usuarios vacantes
+
+        $this->authorize('create',Vacante::class);
 
         return view('vacantes.create');
 
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Vacante $vacante)
     {
         //
+        return view('vacantes.show',[
+            'vacante'=>$vacante
+        ]);
+
     }
 
     /**
@@ -49,25 +50,15 @@ class VacanteController extends Controller
      */
     public function edit(Vacante $vacante)
     {
-        //
+        //mandamos a llamar nuestra policies para no permitir la actualización de cualquier usuario
+        $this->authorize('update',$vacante);
+
+
         return view('vacantes.edit',[
             'vacante'=>$vacante
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+    
+   
 }

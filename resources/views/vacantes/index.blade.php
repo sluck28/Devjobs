@@ -13,7 +13,6 @@
                     {{session('mensaje')}}
                 </div>
             @endif
-
             <livewire:mostrar-vacantes>
         </div>
     </div>

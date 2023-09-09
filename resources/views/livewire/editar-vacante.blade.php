@@ -1,5 +1,5 @@
 
-    <form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
+    <form class="md:w-1/2 space-y-5" wire:submit.prevent='editarVacante'>
 
         <div>
             <x-input-label for="titulo" :value="__('Titulo de la vacante')" />
@@ -75,23 +75,29 @@
             <div>
                 {{-- aceppt/* para solo aceptar imagenes --}}
                 <x-input-label for="imagen" :value="__('Imagen')" />
-                <x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model="imagen" accept="image/*"/>
+                <x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model="imagen_nueva" accept="image/*"/>
     
-                
-                {{-- <div class="my-5 w-96">
+                {{-- imagen para editar --}}
+                <div class="my-5 w-96">
+                    <x-input-label for="imagen" :value="__('imagen ')" />
+                    <img src="{{asset('storage/vacantes/'.$imagen)}}" alt="{{'imagen vacanet'.$titulo}}">
+                </div>
+
+                <div class="my-5 w-96">
                     
-                    @if ($imagen)
-                        <img src="{{$imagen->temporaryUrl()}}" alt="">
+                    @if ($imagen_nueva)
+                    Imagen nueva :
+                        <img src="{{$imagen_nueva->temporaryUrl()}}" alt="">
                     @endif
                 </div>  
-     --}}
+    
                 @error('imagen')
                 <livewire:mostrar-alerta :message="$message">
                 @enderror
             </div>
     
             <x-primary-button>
-                Crear Vacante
+                Guardar cambios
             </x-primary-button>
     </form>
 
