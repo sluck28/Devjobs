@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\RolUsuario;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,5 +65,7 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        //agregamos nuestro middleware para no tengan acceso nuestros devs a las notificaciones
+        'rol.reclutador' => RolUsuario::class
     ];
 }
